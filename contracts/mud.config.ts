@@ -3,7 +3,7 @@ import { mudConfig } from "@latticexyz/world/register";
 export default mudConfig({
   enums: {
     MonsterCatchResult: ["Missed", "Caught", "Fled"],
-    MonsterType: ["None", "Eagle", "Rat", "Caterpillar"],
+    MonsterType: ["None", "Cat", "Dog", "Pig"],
     TerrainType: ["None", "TallGrass", "Boulder"],
   },
   tables: {

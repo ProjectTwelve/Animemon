@@ -1,4 +1,4 @@
-export function moveToLocation(player: mw.Player, direction: Vector) {
+export function moveToLocation(player: mw.Player, direction: Vector): Vector2 {
 
     // adjust by the direction of charater
     const r = player.character.localTransform.rotation.z;
@@ -32,5 +32,8 @@ export function moveToLocation(player: mw.Player, direction: Vector) {
         direction.y = - oldX;
     }
 
-    player.character.localTransform.position = new Vector(player.character.localTransform.position.x + direction.x, player.character.localTransform.position.y + direction.y, player.character.localTransform.position.z + direction.z)
+    const newX = player.character.localTransform.position.x + direction.x;
+    const newY = player.character.localTransform.position.y + direction.y;
+
+    return new Vector2(newX, newY)
 }

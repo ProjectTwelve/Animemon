@@ -28,7 +28,7 @@
     "rimraf": "^3.0.2",
     "rxjs": "7.8.1",
     "typescript": "5.1.6",
-    "viem": "^1.16.2"
+    "viem": "1.6.0"
   },
   "engines": {
     "node": "16.x",

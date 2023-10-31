@@ -1,4 +1,6 @@
-# MUD template with p12 editor
+# Animemon
+
+Another client version of [emojinmon](https://github.com/latticexyz/emojimon). WIP
 
 ![](./preview.gif)
 
@@ -15,7 +17,7 @@ require:
 clone the repo
 
 ```powershell
-git clone https://github.com/ProjectTwelve/mud-template-p12-editor.git
+git clone https://github.com/ProjectTwelve/Animemon
 ```
 
 init submodule
