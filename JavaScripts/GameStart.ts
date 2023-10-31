@@ -235,7 +235,7 @@ export default class GameStart extends Script {
             setTimeout(() => {
                 UIService.hide(EncounterUI);
 
-            }, 1000)
+            }, 500)
             if (this.monsterObj) {
                 this.monsterObj.destroy();
                 this.monsterObj = undefined;

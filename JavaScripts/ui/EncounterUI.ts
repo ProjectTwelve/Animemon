@@ -77,6 +77,9 @@ export class EncounterUI extends Encounter_Generate {
 	* UIUI
 	*/
 	protected onDestroy() {
+
+		this.alertTxt.text = ""
+
 	}
 
 	/**
@@ -92,7 +95,6 @@ export class EncounterUI extends Encounter_Generate {
 	 */
 	protected onShow(...params: any[]) {
 
-		this.alertTxt.text = ""
 
 	}
 
