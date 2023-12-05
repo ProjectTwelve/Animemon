@@ -3,13 +3,13 @@
  * AUTO GENERATE BY UI EDITOR.
  * WARNING: DO NOT MODIFY THIS FILE,MAY CAUSE CODE LOST.
  * ATTENTION: onStart UI
- * UI: UI/DefaultUI.ui
+ * UI: UI/DevTool.ui
 */
 
 
 
-@UIBind('UI/DefaultUI.ui')
-export default class DefaultUI_Generate extends UIScript {
+@UIBind('UI/DevTool.ui')
+export default class DevTool_Generate extends UIScript {
 	
 
  

@@ -90,11 +90,6 @@ export default class GameStart extends Script {
 
 
 
-        // setTimeout(() => {
-        //     const position = getComponentValue(Position, playerEntity);
-        //     console.log("current location:", position?.x, position?.y);
-        // }, 2000)
-
     }
 
 
@@ -215,7 +210,7 @@ export default class GameStart extends Script {
                 const monsterType = getComponentValue(Monster, eValue?.monster as Entity).value;
 
                 if (monsterType === MonsterType.Cat) {
-                    this.monsterObj = GameObject.spawn("1090246B41F9EF171FB55E9C7811B7C3")
+                    this.monsterObj = Character.spawn("1090246B41F9EF171FB55E9C7811B7C3")
                 } else if (monsterType === MonsterType.Dog) {
                     this.monsterObj = GameObject.spawn("A0F9D4F34922AFC9A241CB9B55C150CC")
                 } else if (monsterType === MonsterType.Pig) {
@@ -224,6 +219,12 @@ export default class GameStart extends Script {
 
                 this.monsterObj.localTransform.position = new Vector(playerPosition.x * this.mapSize, (playerPosition.y - 1) * this.mapSize, 0)
 
+
+                // play animation
+                // AssetUtil.asyncDownloadAsset("221659") 
+
+                // this.monsterObj as 
+
                 // let the obj face to hero
 
                 // this.monsterObj.localTransform.rotation = new Rotation();
@@ -231,6 +232,7 @@ export default class GameStart extends Script {
 
 
         } else {
+
             // hide ui and destroy the game object if exists after 2s
             setTimeout(() => {
                 UIService.hide(EncounterUI);

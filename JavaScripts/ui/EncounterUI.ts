@@ -36,7 +36,6 @@ export class EncounterUI extends Encounter_Generate {
 		ThrowBallBtn.onClicked.add(() => {
 			this.alertTxt.text = ""
 			throwBall().then((result) => {
-				console.log("result: ", result)
 				const resultTextMap = {
 					0: "Missed",
 					1: "Monster Caught",
