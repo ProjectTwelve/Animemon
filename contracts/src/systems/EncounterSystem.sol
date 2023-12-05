@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0;
 import { System } from "@latticexyz/world/src/System.sol";
-import { Player, Encounter, EncounterData, MonsterCatchAttempt, OwnedBy, Monster } from "../codegen/Tables.sol";
-import { MonsterCatchResult } from "../codegen/Types.sol";
+import { Player, Encounter, EncounterData, MonsterCatchAttempt, OwnedBy, Monster } from "src/codegen/index.sol";
+import { MonsterCatchResult } from "../codegen/common.sol";
 import { addressToEntityKey } from "../addressToEntityKey.sol";
 
 contract EncounterSystem is System {
@@ -15,17 +15,17 @@ contract EncounterSystem is System {
     uint256 rand = uint256(keccak256(abi.encode(player, encounter.monster, encounter.catchAttempts, blockhash(block.number - 1), block.difficulty)));
     if (rand % 2 == 0) {
       // 50% chance to catch monster
-      MonsterCatchAttempt.emitEphemeral(player, MonsterCatchResult.Caught);
+      MonsterCatchAttempt.set(player, MonsterCatchResult.Caught);
       OwnedBy.set(encounter.monster, player);
       Encounter.deleteRecord(player);
     } else if (encounter.catchAttempts >= 2) {
       // Missed 2 times, monster escapes
-      MonsterCatchAttempt.emitEphemeral(player, MonsterCatchResult.Fled);
+      MonsterCatchAttempt.set(player, MonsterCatchResult.Fled);
       Monster.deleteRecord(encounter.monster);
       Encounter.deleteRecord(player);
     } else {
       // Throw missed!
-      MonsterCatchAttempt.emitEphemeral(player, MonsterCatchResult.Missed);
+      MonsterCatchAttempt.set(player, MonsterCatchResult.Missed);
       Encounter.setCatchAttempts(player, encounter.catchAttempts + 1);
     }
   }

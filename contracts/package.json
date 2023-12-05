@@ -17,10 +17,10 @@
     "test": "tsc --noEmit && mud test"
   },
   "dependencies": {
-    "@latticexyz/cli": "2.0.0-next.8",
-    "@latticexyz/schema-type": "2.0.0-next.8",
-    "@latticexyz/store": "2.0.0-next.8",
-    "@latticexyz/world": "2.0.0-next.8",
+    "@latticexyz/cli": "2.0.0-next.14",
+    "@latticexyz/schema-type": "2.0.0-next.14",
+    "@latticexyz/store": "2.0.0-next.14",
+    "@latticexyz/world": "2.0.0-next.14",
     "rimraf": "^5.0.5"
   },
   "devDependencies": {
@@ -28,7 +28,7 @@
     "prettier": "^2.6.2",
     "prettier-plugin-solidity": "^1.0.0-beta.19",
     "solhint": "^3.3.7",
-    "solhint-config-mud": "2.0.0-next.8",
-    "solhint-plugin-mud": "2.0.0-next.8"
+    "solhint-config-mud": "2.0.0-next.14",
+    "solhint-plugin-mud": "2.0.0-next.14"
   }
 }

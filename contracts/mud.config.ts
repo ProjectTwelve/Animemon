@@ -11,7 +11,7 @@ export default mudConfig({
       keySchema: {
         player: "bytes32",
       },
-      schema: {
+      valueSchema: {
         exists: "bool",
         monster: "bytes32",
         catchAttempts: "uint256",
@@ -22,7 +22,7 @@ export default mudConfig({
     MapConfig: {
       keySchema: {},
       dataStruct: false,
-      schema: {
+      valueSchema: {
         width: "uint32",
         height: "uint32",
         terrain: "bytes",
@@ -34,7 +34,7 @@ export default mudConfig({
       keySchema: {
         encounter: "bytes32",
       },
-      schema: {
+      valueSchema: {
         result: "MonsterCatchResult",
       },
     },
@@ -45,7 +45,7 @@ export default mudConfig({
     Player: "bool",
     Position: {
       dataStruct: false,
-      schema: {
+      valueSchema: {
         x: "uint32",
         y: "uint32",
       },

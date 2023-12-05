@@ -4,14 +4,15 @@ pragma solidity >=0.8.21;
 import {Script} from "forge-std/Script.sol";
 import {console} from "forge-std/console.sol";
 import {IWorld} from "src/codegen/world/IWorld.sol";
-import {TerrainType} from "src/codegen/Types.sol";
-import {EncounterTrigger, MapConfig, Obstruction, Position} from "src/codegen/Tables.sol";
+import {TerrainType} from "src/codegen/common.sol";
+import {EncounterTrigger, MapConfig, Obstruction, Position} from "src/codegen/index.sol";
 import {positionToEntityKey} from "src/positionToEntityKey.sol";
-import { IStore } from "@latticexyz/store/src/IStore.sol";
-
+import {IStore} from "@latticexyz/store/src/IStore.sol";
+import {StoreSwitch} from "@latticexyz/store/src/StoreSwitch.sol";
 
 contract PostDeploy is Script {
     function run(address worldAddress) external {
+        StoreSwitch.setStoreAddress(worldAddress);
         // Load the private key from the `PRIVATE_KEY` environment variable (in .env)
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
 
@@ -58,16 +59,16 @@ contract PostDeploy is Script {
 
                 bytes32 entity = positionToEntityKey(x, y);
                 if (terrainType == TerrainType.Boulder) {
-                    Position.set(IStore(worldAddress), entity, x, y);
-                    Obstruction.set(IStore(worldAddress), entity, true);
+                    Position.set(entity, x, y);
+                    Obstruction.set(entity, true);
                 } else if (terrainType == TerrainType.TallGrass) {
-                    Position.set(IStore(worldAddress), entity, x, y);
-                    EncounterTrigger.set(IStore(worldAddress), entity, true);
+                    Position.set( entity, x, y);
+                    EncounterTrigger.set( entity, true);
                 }
             }
         }
 
-        MapConfig.set(IStore(worldAddress), width, height, terrain);
+        MapConfig.set(width, height, terrain);
 
         vm.stopBroadcast();
     }
